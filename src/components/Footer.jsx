@@ -21,7 +21,7 @@ const Footer = () => {
 
         {/* Company Links */}
         <div>
-          <h6 className="text-lg font-semibold mb-2">Company</h6>
+          <h6 className="text-secondary text-lg font-semibold mb-2">Company</h6>
           <ul className="space-y-1">
             <li>
               <Link to="/About" className="hover:underline">
@@ -38,7 +38,7 @@ const Footer = () => {
 
         {/* Legal Links */}
         <div>
-          <h6 className="text-lg font-semibold mb-2">Legal</h6>
+          <h6 className="text-lg font-semibold mb-2 text-secondary">Legal</h6>
           <ul className="space-y-1">
             <li>
               <Link to="/UserTerms" className="hover:underline">
@@ -60,7 +60,7 @@ const Footer = () => {
 
         {/* Optional: Contact Info or Newsletter */}
         <div>
-          <h6 className="text-lg font-semibold mb-2">Stay Connected</h6>
+          <h6 className="text-lg font-semibold mb-2 text-secondary">Stay Connected</h6>
           <p className="text-sm mb-2">info@loansite.com</p>
         </div>
       </div>
