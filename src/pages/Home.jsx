@@ -1,7 +1,8 @@
 import React from 'react'
 import HeroSection from '../components/HeroSection'
 import WorkingProcess from '@/components/WorkingProcess'
-
+import WhyChooseUs from '@/components/WhyChooseUs'
+import Carousel from '@/components/Carousel'
 
 const Home = () => {
   return (
@@ -14,6 +15,15 @@ const Home = () => {
     <section>
       <WorkingProcess/>
     </section>
+    {/* Carousel section */}
+    <section>
+      <Carousel/>
+    </section>
+    {/* Why Choose Us Component */}
+    <section>
+      <WhyChooseUs/>
+    </section>
+
     </>
   )
 }

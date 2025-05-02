@@ -17,12 +17,8 @@ export default function About() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-primary font-semibold text-lg mb-2 flex items-center gap-2">
-            <span className="w-2.5 h-2.5 bg-[#fbbf24] rounded-full" />
-            About Us
-          </h3>
 
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
             Your Trusted Source for Loan Reviews and Comparison
           </h2>
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import About from '@/components/AboutUs-Section'
 import { motion } from 'framer-motion'
+import WhyChooseUs from '@/components/WhyChooseUs'
 
 const AboutUs = () => {
   return (
@@ -22,7 +23,7 @@ const AboutUs = () => {
 
           <div className="mt-9 md:mt-0">
             <img
-              src="/assets/images/Contact.png"
+              src="/assets/images/About.png"
               alt="Contact Illustration"
               className="w-56 h-auto object-contain md:block hidden"
             />
@@ -30,6 +31,9 @@ const AboutUs = () => {
         </motion.div>
       </div>
         <About/>
+      </section>
+      <section>
+        <WhyChooseUs/>
       </section>
   </>
   )

@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import heroImage from "/assets/images/hero-image4.png"; 
+import heroImage from "/assets/images/hero-image.png"; 
 import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
-    <section className="bg-primary-foreground text-secondary py-24 overflow-hidden">
-      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center px-6 md:px-12 gap-10">
+    <section className="bg-primary-foreground text-secondary py-30 overflow-hidden">
+      <div className="container mx-auto flex flex-col md:flex-row items-center px-6 md:px-12 gap-10">
 
         {/* Left Content */}
         <motion.div
@@ -26,12 +26,12 @@ export default function HeroSection() {
             That’s why we’re here to help simplify the process.
           </p>
 
-          <div className="flex flex-col md:flex-row items-center gap-4 mt-6">
-            <button className="border border-secondary text-secondary font-semibold py-3 px-6 rounded-full hover:scale-105 transition duration-300">
+          <div className="items-center gap-4 mt-6">
+            <button className="border border-secondary text-secondary font-semibold mr-3 py-3 px-6 rounded-full hover:scale-105 hover:bg-secondary hover:text-primary transition duration-300 cursor-pointer">
               Apply for Loan
             </button>
             <Link to="/about">
-            <button className="border border-secondary text-secondary font-semibold py-3 px-6 rounded-full hover:bg-secondary hover:text-primary transition duration-300">
+            <button className="border border-secondary text-secondary font-semibold py-3 px-6 rounded-full hover:bg-secondary hover:text-primary hover:scale-105 transition duration-300 cursor-pointer ">
               About Us
             </button>
             </Link>
