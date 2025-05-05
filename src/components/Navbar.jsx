@@ -136,7 +136,7 @@ const Navbar = () => {
           </NavigationMenu>
         </ul>
 
-        <Link >
+        <Link to="/form">
           <Button className="md:flex hidden bg-primary text-secondary cursor-pointer">
             Get Loan Now!
           </Button>

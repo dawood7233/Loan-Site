@@ -62,7 +62,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="flex gap-4"
               >
-                <div className="bg-white shadow p-3 rounded-full">
+                <div className="bg-primary-foreground shadow p-3 rounded-full">
                   {icon}
                 </div>
                 <div>

@@ -27,9 +27,11 @@ export default function HeroSection() {
           </p>
 
           <div className="items-center gap-4 mt-6">
+            <Link to="/form">
             <button className="border border-secondary text-secondary font-semibold mr-3 py-3 px-6 rounded-full hover:scale-105 hover:bg-secondary hover:text-primary transition duration-300 cursor-pointer">
               Apply for Loan
             </button>
+            </Link>
             <Link to="/about">
             <button className="border border-secondary text-secondary font-semibold py-3 px-6 rounded-full hover:bg-secondary hover:text-primary hover:scale-105 transition duration-300 cursor-pointer ">
               About Us

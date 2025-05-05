@@ -12,7 +12,7 @@ import AboutUs from "./pages/AboutUs";
 import AutoScroll from "./components/AutoScroll";
 import ScrollUp from "./components/ScrollUp";
 import Cursor from "./components/Cursor";
-
+import Form from "./components/Form";
 const App = () => {
   return (
     <Router>
@@ -26,6 +26,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/footer" element={<Footer />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/form" element={<Form />} />
         </Routes>
         <Footer />
         </Router>
