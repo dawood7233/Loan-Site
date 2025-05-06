@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
+import {Link} from "react-router-dom";
 
 export default function WhyChooseUs() {
   return (
@@ -66,10 +67,11 @@ export default function WhyChooseUs() {
               </li>
             ))}
           </ul>
-
-          <button className="mt-8 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full hover:bg-primary/90 transition shadow">
+          <Link to="/form">
+          <button className="mt-8 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full hover:bg-primary/90 transition shadow cursor-pointer">
             Get Loan →
           </button>
+          </Link>
         </motion.div>
       </div>
     </section>

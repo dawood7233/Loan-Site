@@ -12,7 +12,7 @@ import AboutUs from "./pages/AboutUs";
 import AutoScroll from "./components/AutoScroll";
 import ScrollUp from "./components/ScrollUp";
 import Cursor from "./components/Cursor";
-import Form from "./components/Form";
+import Form from "./components/LoanForm";
 const App = () => {
   return (
     <Router>
