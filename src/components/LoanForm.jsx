@@ -87,8 +87,7 @@ const LoanForm = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className="p-8 text-primary rounded-xl shadow-xl space-y-4 mt-18">
-      {/* Render inputs dynamically or individually like: */}
+    <form onSubmit={formik.handleSubmit} className="p-8  rounded-xl shadow-xl space-y-4 mt-18">
       <div>
         <label className="block mb-1">Loan Amount</label>
         <select name="loanAmount" onChange={formik.handleChange} value={formik.values.loanAmount} className="w-full p-2 border rounded">
@@ -98,22 +97,15 @@ const LoanForm = () => {
           <option value="$300">$300</option>
           <option value="$400">$400</option>
         </select>
-        {formik.errors.loanAmount && <div className="text-red-600 text-sm">{formik.errors.loanAmount}</div>}
+        {formik.errors.loanAmount && <div className="text-primary text-sm">{formik.errors.loanAmount}</div>}
       </div>
-
-      {/* Repeat the above block with appropriate name, label and options/inputs for all fields... */}
       <div>
-        <label className="block mb-1">Loan Amount</label>
-        <select name="loanAmount" onChange={formik.handleChange} value={formik.values.loanAmount} className="w-full p-2 border rounded">
-          <option value="">Select</option>
-          <option value="$100">$100</option>
-          <option value="$200">$200</option>
-          <option value="$300">$300</option>
-          <option value="$400">$400</option>
-        </select>
-        {formik.errors.loanAmount && <div className="text-red-600 text-sm">{formik.errors.loanAmount}</div>}
+        <label className="block mb-1">Zip Code</label>
+        <input name="zipCode" onChange={formik.handleChange} value={formik.values.zipCode} className="w-full p-2 border rounded">
+        </input>
+        {formik.errors.zipCode && <div className="text-primary text-sm">{formik.errors.zipCode}</div>}
       </div>
-      <button type="submit" className="bg-primary text-white px-6 py-2 rounded hover:opacity-90">Submit</button>
+      <button type="submit" className="bg-primary text-primary-foreground px-6 py-2 rounded hover:opacity-90">Submit</button>
     </form>
   );
 };
