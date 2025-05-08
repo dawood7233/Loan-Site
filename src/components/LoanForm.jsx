@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+
 const initialValues = {
   loanAmount: "",
   zipCode: "",
@@ -106,7 +107,10 @@ const LoanForm = () => {
       const objectData = values;
       console.log("Final object data:", JSON.stringify(objectData));
     },
+    validateOnChange: false, 
+    validateOnBlur: false,    
   });
+
 
   return (
     <form
@@ -287,7 +291,9 @@ const LoanForm = () => {
             className="w-full p-2 border rounded"
           />
           {formik.errors.streetAddress && (
-            <div className="text-primary text-sm">{formik.errors.streetAddress}</div>
+            <div className="text-primary text-sm">
+              {formik.errors.streetAddress}
+            </div>
           )}
         </div>
         <div className="w-1/2">
@@ -312,10 +318,9 @@ const LoanForm = () => {
             </div>
           )}
         </div>
-        
       </div>
       <div className="flex gap-4">
-      <div className="w-1/2">
+        <div className="w-1/2">
           <label className="block mb-1">State</label>
           <select
             name="state"
@@ -330,9 +335,7 @@ const LoanForm = () => {
             <option value="Colorado">Colorado</option>
           </select>
           {formik.errors.state && (
-            <div className="text-primary text-sm">
-              {formik.errors.state}
-            </div>
+            <div className="text-primary text-sm">{formik.errors.state}</div>
           )}
         </div>
         <div className="w-1/2">
@@ -354,7 +357,359 @@ const LoanForm = () => {
           )}
         </div>
       </div>
-
+      <div className="flex gap-4">
+        <div className="w-1/2">
+          <label className="block mb-1">ID/Driver's License</label>
+          <input
+            name="idLicense"
+            onChange={formik.handleChange}
+            value={formik.values.idLicense}
+            className="w-full p-2 border rounded"
+          />
+          {formik.errors.idLicense && (
+            <div className="text-primary text-sm">
+              {formik.errors.idLicense}
+            </div>
+          )}
+        </div>
+        <div className="w-1/2">
+          <label className="block mb-1">License State</label>
+          <select
+            name="licenseState"
+            onChange={formik.handleChange}
+            value={formik.values.licenseState}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="Alaska">Alaska</option>
+            <option value="Arizona">Arizona</option>
+            <option value="California">California</option>
+            <option value="Colorado">Colorado</option>
+          </select>
+          {formik.errors.licenseState && (
+            <div className="text-primary text-sm">
+              {formik.errors.licenseState}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="flex gap-4">
+        <div className="w-1/2">
+          <label className="block mb-1">Best Contact Time</label>
+          <select
+            name="contactTime"
+            onChange={formik.handleChange}
+            value={formik.values.contactTime}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+            <option value="Any Time">Any Time</option>
+          </select>
+          {formik.errors.contactTime && (
+            <div className="text-primary text-sm">
+              {formik.errors.contactTime}
+            </div>
+          )}
+        </div>
+        <div className="w-1/2">
+          <label className="block mb-1">Car Ownership</label>
+          <select
+            name="carOwnership"
+            onChange={formik.handleChange}
+            value={formik.values.carOwnership}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="Fully Own">Fully Own</option>
+            <option value="Lease/Finance/None">Lease/Finance/None</option>
+          </select>
+          {formik.errors.carOwnership && (
+            <div className="text-primary text-sm">
+              {formik.errors.carOwnership}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="flex gap-4">
+        <div className="w-1/2">
+          <label className="block mb-1">Work Phone</label>
+          <input
+            name="workPhone"
+            onChange={formik.handleChange}
+            value={formik.values.workPhone}
+            className="w-full p-2 border rounded"
+            placeholder="eg. 3605551234"
+          />
+          {formik.errors.workPhone && (
+            <div className="text-primary text-sm">{formik.errors.workPhone}</div>
+          )}
+        </div>
+        <div className="w-1/2">
+          <label className="block mb-1">Income Source</label>
+          <select
+            name="incomeSource"
+            onChange={formik.handleChange}
+            value={formik.values.incomeSource}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="Benefits">Benefits</option>
+            <option value="Disability">Disability</option>
+            <option value="Job Income">Job Income</option>
+            <option value="Military">Military</option>
+            <option value="Pension">Pension</option>
+            <option value="Self Employed">Self Employed</option>
+            <option value="Social Security">Social Security</option>
+          </select>
+          {formik.errors.incomeSource && (
+            <div className="text-primary text-sm">
+              {formik.errors.incomeSource}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="flex gap-4">
+        <div className="w-1/2">
+          <label className="block mb-1">Job Title</label>
+          <input
+            name="jobTitle"
+            onChange={formik.handleChange}
+            value={formik.values.jobTitle}
+            className="w-full p-2 border rounded"
+          />
+          {formik.errors.jobTitle && (
+            <div className="text-primary text-sm">{formik.errors.jobTitle}</div>
+          )}
+        </div>
+        <div className="w-1/2">
+          <label className="block mb-1">Employer Name</label>
+          <input
+            name="employerName"
+            onChange={formik.handleChange}
+            value={formik.values.employerName}
+            className="w-full p-2 border rounded"
+          />
+          {formik.errors.employerName && (
+            <div className="text-primary text-sm">{formik.errors.employerName}</div>
+          )}
+        </div>
+      </div>
+      <div className="flex gap-4">
+        <div className="w-1/2">
+          <label className="block mb-1">Time Employed</label>
+          <select
+            name="employmentTime"
+            onChange={formik.handleChange}
+            value={formik.values.employmentTime}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="1 Month">1 Month</option>
+            <option value="3 Months">3 Months</option>
+            <option value="6 Months">6 Months</option>
+            <option value="9 Months">9 Months</option>
+            <option value="1 Year">1 Year</option>
+            <option value="1-2 Years">1-2 Years</option>
+            <option value="2-3 Years">2-3 Years</option>
+            <option value="3-4 Years">3-4 Years</option>
+            <option value="4-5 Years">4-5 Years</option>
+            <option value="5-10 Years">5-10 Years</option>
+            <option value="10-20 Years">10-20 Years</option>
+            <option value="20-30 Years">20-30 Years</option>
+            <option value="30+ Years">30+ Years</option>
+          </select>
+          {formik.errors.employmentTime && (
+            <div className="text-primary text-sm">
+              {formik.errors.employmentTime}
+            </div>
+          )}
+        </div>
+        <div className="w-1/2">
+          <label className="block mb-1">Pay Frequency</label>
+          <select
+            name="payFrequency"
+            onChange={formik.handleChange}
+            value={formik.values.payFrequency}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="Bi-Weekly(Every Other Week)">Bi-Weekly(Every Other Week)</option>
+            <option value="Monthly(Once a Month)">Monthly(Once a Month)</option>
+            <option value="Semi-Monthly(Twice a Month)">Semi-Monthly(Twice a Month)</option>
+            <option value="Weekly(Once a Week)">Weekly(Once a Week)</option>
+          </select>
+          {formik.errors.payFrequency && (
+            <div className="text-primary text-sm">
+              {formik.errors.payFrequency}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="flex gap-4">
+      <div className="w-1/2">
+          <label className="block mb-1">Next Pay Date</label>
+          <input
+            type="date"
+            name="nextPayDate"
+            onChange={formik.handleChange}
+            value={formik.values.nextPayDate}
+            className="w-full p-2 border rounded"
+          />
+          {formik.errors.nextPayDate && (
+            <div className="text-primary text-sm">{formik.errors.nextPayDate}</div>
+          )}
+        </div>
+        <div className="w-1/2">
+          <label className="block mb-1">Active Military?</label>
+          <select
+            name="activeMilitary"
+            onChange={formik.handleChange}
+            value={formik.values.activeMilitary}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          {formik.errors.activeMilitary && (
+            <div className="text-primary text-sm">
+              {formik.errors.activeMilitary}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="flex gap-4">
+      <div className="w-1/2">
+          <label className="block mb-1">Monthly Net Incone</label>
+          <select
+            name="monthlyIncome"
+            onChange={formik.handleChange}
+            value={formik.values.monthlyIncome}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          {formik.errors.monthlyIncome && (
+            <div className="text-primary text-sm">
+              {formik.errors.monthlyIncome}
+            </div>
+          )}
+        </div>
+        <div className="w-1/2">
+          <label className="block mb-1">Direct Deposit</label>
+          <select
+            name="directDeposit"
+            onChange={formik.handleChange}
+            value={formik.values.directDeposit}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          {formik.errors.directDeposit && (
+            <div className="text-primary text-sm">
+              {formik.errors.directDeposit}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="flex gap-4">
+        <div className="w-1/2">
+          <label className="block mb-1">ABA/Routing Number</label>
+          <input
+            name="abaRouting"
+            onChange={formik.handleChange}
+            value={formik.values.abaRouting}
+            className="w-full p-2 border rounded"
+          />
+          {formik.errors.abaRouting && (
+            <div className="text-primary text-sm">{formik.errors.abaRouting}</div>
+          )}
+        </div>
+        <div className="w-1/2">
+          <label className="block mb-1">Account Number</label>
+          <input
+            name="accountNumber"
+            onChange={formik.handleChange}
+            value={formik.values.accountNumber}
+            className="w-full p-2 border rounded"
+          />
+          {formik.errors.accountNumber && (
+            <div className="text-primary text-sm">{formik.errors.accountNumber}</div>
+          )}
+        </div>
+      </div>
+      <div className="flex gap-4">
+      <div className="w-1/2">
+          <label className="block mb-1">Account Type</label>
+          <select
+            name="accountType"
+            onChange={formik.handleChange}
+            value={formik.values.accountType}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          {formik.errors.accountType && (
+            <div className="text-primary text-sm">
+              {formik.errors.accountType}
+            </div>
+          )}
+        </div>
+        <div className="w-1/2">
+          <label className="block mb-1">Months at Bank</label>
+          <select
+            name="monthsAtBank"
+            onChange={formik.handleChange}
+            value={formik.values.monthsAtBank}
+            className="w-full p-2 border rounded"
+          >
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          {formik.errors.monthsAtBank && (
+            <div className="text-primary text-sm">
+              {formik.errors.monthsAtBank}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="flex gap-4">
+        <div className="w-1/2">
+          <label className="block mb-1">Bank Name</label>
+          <input
+            name="bankName"
+            onChange={formik.handleChange}
+            value={formik.values.bankName}
+            className="w-full p-2 border rounded"
+          />
+          {formik.errors.bankName && (
+            <div className="text-primary text-sm">{formik.errors.bankName}</div>
+          )}
+        </div>
+        <div className="w-1/2">
+          <label className="block mb-1">Social Security Number</label>
+          <input
+            name="ssnFull"
+            onChange={formik.handleChange}
+            value={formik.values.ssnFull}
+            className="w-full p-2 border rounded"
+          />
+          {formik.errors.ssnFull && (
+            <div className="text-primary text-sm">{formik.errors.ssnFull}</div>
+          )}
+        </div>
+      </div>
       {/* Submit Button */}
       <div className="flex justify-center mt-6">
         <button
