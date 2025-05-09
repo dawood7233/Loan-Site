@@ -115,8 +115,9 @@ const LoanForm = () => {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="p-8 rounded-xl shadow-xl space-y-4 mt-18 max-w-4xl mx-auto"
+      className="p-8 rounded-xl shadow-xl space-y-2 mt-18 max-w-6xl mx-auto"
     >
+      <h1 className="text-4xl text-center pb-10 font-semibold">Apply for Loan</h1>
       <div className="flex gap-4">
         <div className="w-1/2">
           <label className="block mb-1">Loan Amount</label>
@@ -124,7 +125,7 @@ const LoanForm = () => {
             name="loanAmount"
             onChange={formik.handleChange}
             value={formik.values.loanAmount}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="$100">$100</option>
@@ -145,7 +146,7 @@ const LoanForm = () => {
             name="zipCode"
             onChange={formik.handleChange}
             value={formik.values.zipCode}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.zipCode && (
             <div className="text-primary text-sm">{formik.errors.zipCode}</div>
@@ -159,7 +160,7 @@ const LoanForm = () => {
             name="purpose"
             onChange={formik.handleChange}
             value={formik.values.purpose}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Auto Repair">Auto Repair</option>
@@ -182,7 +183,7 @@ const LoanForm = () => {
             name="creditScore"
             onChange={formik.handleChange}
             value={formik.values.creditScore}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Excellent (700+)">Excellent (700+)</option>
@@ -198,6 +199,7 @@ const LoanForm = () => {
           )}
         </div>
       </div>
+      <h1 className="text-3xl text-center font-semibold">Personal Information</h1>
       <div className="flex gap-4">
         <div className="w-1/2">
           <label className="block mb-1">First Name</label>
@@ -205,7 +207,7 @@ const LoanForm = () => {
             name="firstName"
             onChange={formik.handleChange}
             value={formik.values.firstName}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.firstName && (
             <div className="text-primary text-sm">
@@ -219,7 +221,7 @@ const LoanForm = () => {
             name="lastName"
             onChange={formik.handleChange}
             value={formik.values.lastName}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.lastName && (
             <div className="text-primary text-sm">{formik.errors.lastName}</div>
@@ -234,7 +236,7 @@ const LoanForm = () => {
             name="birthday"
             onChange={formik.handleChange}
             value={formik.values.birthday}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.birthday && (
             <div className="text-primary text-sm">{formik.errors.birthday}</div>
@@ -246,7 +248,7 @@ const LoanForm = () => {
             name="ssnLast4"
             onChange={formik.handleChange}
             value={formik.values.ssnLast4}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.ssnLast4 && (
             <div className="text-primary text-sm">{formik.errors.ssnLast4}</div>
@@ -261,7 +263,7 @@ const LoanForm = () => {
             name="email"
             onChange={formik.handleChange}
             value={formik.values.email}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.email && (
             <div className="text-primary text-sm">{formik.errors.email}</div>
@@ -273,7 +275,7 @@ const LoanForm = () => {
             name="phone"
             onChange={formik.handleChange}
             value={formik.values.phone}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
             placeholder="eg. 3605551234"
           />
           {formik.errors.phone && (
@@ -288,7 +290,7 @@ const LoanForm = () => {
             name="streetAddress"
             onChange={formik.handleChange}
             value={formik.values.streetAddress}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.streetAddress && (
             <div className="text-primary text-sm">
@@ -302,7 +304,7 @@ const LoanForm = () => {
             name="addressLength"
             onChange={formik.handleChange}
             value={formik.values.addressLength}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="1 Month">1 Month</option>
@@ -326,7 +328,7 @@ const LoanForm = () => {
             name="state"
             onChange={formik.handleChange}
             value={formik.values.state}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Alaska">Alaska</option>
@@ -344,7 +346,7 @@ const LoanForm = () => {
             name="homeOwnership"
             onChange={formik.handleChange}
             value={formik.values.homeOwnership}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Rent">Rent</option>
@@ -364,7 +366,7 @@ const LoanForm = () => {
             name="idLicense"
             onChange={formik.handleChange}
             value={formik.values.idLicense}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.idLicense && (
             <div className="text-primary text-sm">
@@ -378,7 +380,7 @@ const LoanForm = () => {
             name="licenseState"
             onChange={formik.handleChange}
             value={formik.values.licenseState}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Alaska">Alaska</option>
@@ -400,7 +402,7 @@ const LoanForm = () => {
             name="contactTime"
             onChange={formik.handleChange}
             value={formik.values.contactTime}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Morning">Morning</option>
@@ -421,7 +423,7 @@ const LoanForm = () => {
             name="carOwnership"
             onChange={formik.handleChange}
             value={formik.values.carOwnership}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Fully Own">Fully Own</option>
@@ -441,7 +443,7 @@ const LoanForm = () => {
             name="workPhone"
             onChange={formik.handleChange}
             value={formik.values.workPhone}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
             placeholder="eg. 3605551234"
           />
           {formik.errors.workPhone && (
@@ -454,7 +456,7 @@ const LoanForm = () => {
             name="incomeSource"
             onChange={formik.handleChange}
             value={formik.values.incomeSource}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Benefits">Benefits</option>
@@ -479,7 +481,7 @@ const LoanForm = () => {
             name="jobTitle"
             onChange={formik.handleChange}
             value={formik.values.jobTitle}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.jobTitle && (
             <div className="text-primary text-sm">{formik.errors.jobTitle}</div>
@@ -491,7 +493,7 @@ const LoanForm = () => {
             name="employerName"
             onChange={formik.handleChange}
             value={formik.values.employerName}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.employerName && (
             <div className="text-primary text-sm">{formik.errors.employerName}</div>
@@ -505,7 +507,7 @@ const LoanForm = () => {
             name="employmentTime"
             onChange={formik.handleChange}
             value={formik.values.employmentTime}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="1 Month">1 Month</option>
@@ -534,7 +536,7 @@ const LoanForm = () => {
             name="payFrequency"
             onChange={formik.handleChange}
             value={formik.values.payFrequency}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Bi-Weekly(Every Other Week)">Bi-Weekly(Every Other Week)</option>
@@ -557,7 +559,7 @@ const LoanForm = () => {
             name="nextPayDate"
             onChange={formik.handleChange}
             value={formik.values.nextPayDate}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.nextPayDate && (
             <div className="text-primary text-sm">{formik.errors.nextPayDate}</div>
@@ -569,7 +571,7 @@ const LoanForm = () => {
             name="activeMilitary"
             onChange={formik.handleChange}
             value={formik.values.activeMilitary}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Yes">Yes</option>
@@ -582,6 +584,7 @@ const LoanForm = () => {
           )}
         </div>
       </div>
+      <h1 className="text-3xl text-center font-semibold">Bank Account Details</h1>
       <div className="flex gap-4">
       <div className="w-1/2">
           <label className="block mb-1">Monthly Net Incone</label>
@@ -589,7 +592,7 @@ const LoanForm = () => {
             name="monthlyIncome"
             onChange={formik.handleChange}
             value={formik.values.monthlyIncome}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Yes">Yes</option>
@@ -607,7 +610,7 @@ const LoanForm = () => {
             name="directDeposit"
             onChange={formik.handleChange}
             value={formik.values.directDeposit}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Yes">Yes</option>
@@ -627,7 +630,7 @@ const LoanForm = () => {
             name="abaRouting"
             onChange={formik.handleChange}
             value={formik.values.abaRouting}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.abaRouting && (
             <div className="text-primary text-sm">{formik.errors.abaRouting}</div>
@@ -639,7 +642,7 @@ const LoanForm = () => {
             name="accountNumber"
             onChange={formik.handleChange}
             value={formik.values.accountNumber}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.accountNumber && (
             <div className="text-primary text-sm">{formik.errors.accountNumber}</div>
@@ -653,7 +656,7 @@ const LoanForm = () => {
             name="accountType"
             onChange={formik.handleChange}
             value={formik.values.accountType}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Yes">Yes</option>
@@ -671,7 +674,7 @@ const LoanForm = () => {
             name="monthsAtBank"
             onChange={formik.handleChange}
             value={formik.values.monthsAtBank}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           >
             <option value="">Select</option>
             <option value="Yes">Yes</option>
@@ -691,7 +694,7 @@ const LoanForm = () => {
             name="bankName"
             onChange={formik.handleChange}
             value={formik.values.bankName}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.bankName && (
             <div className="text-primary text-sm">{formik.errors.bankName}</div>
@@ -703,7 +706,7 @@ const LoanForm = () => {
             name="ssnFull"
             onChange={formik.handleChange}
             value={formik.values.ssnFull}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 border rounded"
           />
           {formik.errors.ssnFull && (
             <div className="text-primary text-sm">{formik.errors.ssnFull}</div>
@@ -714,7 +717,7 @@ const LoanForm = () => {
       <div className="flex justify-center mt-6">
         <button
           type="submit"
-          className="bg-primary text-primary-foreground px-30 py-2 rounded"
+          className="bg-primary text-primary-foreground font-semibold text-lg px-54 py-2 rounded"
         >
           Submit
         </button>

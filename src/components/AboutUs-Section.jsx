@@ -5,6 +5,7 @@ import {
   BadgeCheck,
   Star,
 } from "lucide-react"; 
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
@@ -74,13 +75,14 @@ export default function About() {
               </motion.div>
             ))}
           </div>
-
+          <Link to="/form">
           <motion.button
             whileHover={{ scale: 1.05 }}
             className="mt-8 px-6 py-3 bg-primary text-white rounded-full text-sm font-medium shadow hover:bg-primary/90 transition"
           >
             Get Loan →
           </motion.button>
+          </Link>
         </motion.div>
 
         {/* Right Side */}
