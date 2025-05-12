@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Carousel from "./Carousel";
+
 
 
 const initialValues = {
@@ -38,6 +40,14 @@ const initialValues = {
   monthsAtBank: "",
   bankName: "",
   ssnFull: "",
+  ipAddress: "",
+  userAgent: "",
+  affid: "",
+  rid: "",
+  tid: "",
+  url: "",
+  start: "",
+  min: "",
 };
 
 const validationSchema = Yup.object({
@@ -99,6 +109,64 @@ const validationSchema = Yup.object({
     .required("Required"),
 });
 
+// Utility to check for existing scripts
+const isScriptAlreadyAdded = (src) => {
+  return document.querySelector(`script[src="${src}"]`) !== null;
+};
+
+// Load TrustedForm script
+const loadTrustedFormScript = () => {
+  const trustedFormSrc =
+    (document.location.protocol === "https:" ? "https" : "http") +
+    "://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=" +
+    new Date().getTime() +
+    Math.random();
+
+  if (!isScriptAlreadyAdded(trustedFormSrc)) {
+    const trustedFormScript = document.createElement("script");
+    trustedFormScript.type = "text/javascript";
+    trustedFormScript.async = true;
+    trustedFormScript.src = trustedFormSrc;
+    document.body.appendChild(trustedFormScript);
+  }
+};
+
+// Load LeadiD script
+const loadLeadiDScript = () => {
+  const leadiDScriptSrc = "//create.lidstatic.com/campaign/402848de-d8aa-7158-923b-a6a24e7956dc.js?snippet_version=2";
+
+  if (!isScriptAlreadyAdded(leadiDScriptSrc)) {
+    const leadiDScript = document.createElement("script");
+    leadiDScript.id = "LeadiDscript_campaign";
+    leadiDScript.type = "text/javascript";
+    leadiDScript.async = true;
+    leadiDScript.src = leadiDScriptSrc;
+    document.body.appendChild(leadiDScript);
+  }
+};
+
+// Fetch IP and campaign parameters
+const fetchInitialData = (setFieldValue) => {
+  fetch("https://api.ipify.org?format=json")
+    .then((response) => response.json())
+    .then((data) => {
+      setFieldValue("ipAddress", data.ip);
+    })
+    .catch((error) => console.error("Failed to fetch IP:", error));
+
+  setFieldValue("userAgent", navigator.userAgent);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  setFieldValue("affid", urlParams.get("affid") || "");
+  setFieldValue("rid", urlParams.get("rid") || "");
+  setFieldValue("tid", urlParams.get("tid") || "");
+  setFieldValue("url", window.location.href);
+
+  const start = new Date().getTime();
+  setFieldValue("start", start);
+  setFieldValue("min", Math.floor(start / 60000));
+};
+
 const LoanForm = () => {
   const formik = useFormik({
     initialValues,
@@ -107,12 +175,18 @@ const LoanForm = () => {
       const objectData = values;
       console.log("Final object data:", JSON.stringify(objectData));
     },
-    validateOnChange: false, 
-    validateOnBlur: false,    
+    validateOnChange: false,
+    validateOnBlur: false,
   });
 
+  useEffect(() => {
+    fetchInitialData(formik.setFieldValue);
+    loadTrustedFormScript();
+    loadLeadiDScript();
+  }, []);
 
   return (
+    <>
     <form
       onSubmit={formik.handleSubmit}
       className="p-8 rounded-xl shadow-xl space-y-2 mt-18 max-w-6xl mx-auto"
@@ -299,7 +373,7 @@ const LoanForm = () => {
           )}
         </div>
         <div className="w-1/2">
-          <label className="block mb-1">Lenght at Address</label>
+          <label className="block mb-1">Length at Address</label>
           <select
             name="addressLength"
             onChange={formik.handleChange}
@@ -723,6 +797,11 @@ const LoanForm = () => {
         </button>
       </div>
     </form>
+    {/* Carousel section */}
+    <section>
+      <Carousel />
+    </section>
+    </>
   );
 };
 
